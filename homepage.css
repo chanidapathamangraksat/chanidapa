@@ -1,0 +1,375 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: system-ui, -apple-system, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    line-height: 1.6;
+    color: #333;
+    padding-top: 60px;
+    background-color: #fef7e0; /* Cream color */
+}
+
+/* Sticky Navigation */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: #e84797; /* Light Purple */
+    color: white;
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.navbar-links {
+    display: flex;
+    gap: 2rem;
+    margin-left: auto;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-1px);
+}
+
+/* About Me Section */
+#about-me {
+    background-color: #fff; /* White background */
+    padding: 2rem;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+#about-me h2 {
+    color: #e84797; /* Light Purple */
+    margin-bottom: 1rem;
+    position: absolute;
+    top: 90px;
+}
+
+.about-me-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Aligns the items in the center */
+    justify-content: center;
+    text-align: center;
+}
+
+
+.contact-info {
+    color: #333;
+    font-size: 1.1rem;
+    position: absolute;
+    top: 395px;
+}
+
+/* Profile Picture in About Me */
+.about-me-picture {
+    background: white;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    top: 155px;
+    margin: 0.5rem 0; /* Adjusted margin */
+    overflow: hidden;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+}
+
+.about-me-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Full-screen Sections */
+section {
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Section Backgrounds */
+#education { background: linear-gradient(135deg, #fcf2e7 0%, #fcf2e7 100%); } 
+#experience { background: linear-gradient(135deg, #bfdcec 0%, #bfdcec 100%); } 
+#skills { background: linear-gradient(135deg, #fcf2e7 0%, #fcf2e7 100%); } 
+
+/* Content Layout */
+.section-content {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Education Section */
+.education-grid {
+    display: grid;
+    grid-template-columns: 400px 1fr; /* Switch places of profile image and text */
+    gap: 3rem;
+    height: calc(100vh - 120px);
+    align-items: center;
+}
+
+.education-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.education-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border-left: 5px solid #fcf2e7;
+}
+
+.education-card:hover {
+    transform: translateX(10px);
+    border-left-color: #9acd32; /* Lemon Green */
+}
+
+.picture-frame {
+    aspect-ratio: 4/5;
+    background: white;
+    border-radius: 20px;
+    padding: 1rem;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #666;
+    width: 80%; /* Make the image container smaller */
+}
+
+/* Experience Section */
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.experience-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #ecebeb;
+}
+
+.experience-card h3 {
+    margin-top: 0;
+}
+
+.experience-card:hover {
+    border-left-color: #9acd32; /* Lemon Green */
+    background-color: #f0f0f0;
+    transform: scale(1.05);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+}
+
+.experience-card:hover h3, .experience-card:hover p {
+    color: #e84797; /* เปลี่ยนสีข้อความเมื่อ hover */
+}
+
+.overlay-link {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0); /* โปร่งใส */
+    z-index: 1; /* ให้แผ่นล่องหนอยู่เหนือเนื้อหาภายในการ์ด */
+    display: block;
+    text-decoration: none; /* ปิดการแสดงผลการ์ดในลิงก์ */
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.skill-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    border-left: 5px solid #e3e3e3;
+}
+
+.skill-card:hover {
+    border-left-color: #9acd32; /* Lemon Green */
+}
+
+h2 {
+    color: #2d3748;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    text-align: center;
+}
+
+h3 {
+    color: #4a5568;
+    margin-bottom: 0.5rem;
+}
+
+.date {
+    color: #718096;
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+}
+
+/* สไตล์สำหรับปุ่ม */
+.round-button {
+    display: inline-block;
+    width: 40px; /* ขนาดของปุ่ม */
+    height: 40px; /* ขนาดของปุ่ม */
+    border-radius: 50%; /* ทำให้ปุ่มกลม */
+    background-color: #ffce55; /* สีพื้นหลัง */
+    color: white; /* สีของข้อความ */
+    text-align: center;
+    line-height: 40px; /* จัดตำแหน่งข้อความให้อยู่กลาง */
+    font-size: 20px; /* ขนาดข้อความ */
+    text-decoration: none; /* ลบเส้นขีดใต้ */
+    transition: background-color 0.3s ease; /* ทำให้มีการเปลี่ยนสีเมื่อ hover */
+}
+
+/* เปลี่ยนสีเมื่อ hover */
+.round-button:hover {
+    background-color: #e84797;
+}
+
+.icons-box {
+    position: absolute;
+    transform: translate(-1%, 300%); /* ช่วยให้ตำแหน่งอยู่ตรงกลางจริงๆ */
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    width: 60%; /* กำหนดขนาดพื้นที่ของไอคอนกลุ่ม */
+}
+
+.icons img {
+    width: 6vh; /* ขนาดไอคอน */
+    height: auto;
+}
+
+.icons {
+    display: flex; /* ใช้ Flexbox สำหรับการจัดเรียงไอคอน */
+    justify-content: space-between; /* ให้ไอคอนกระจายกันในแนวนอน */
+    gap: 3rem; /* ช่องว่างระหว่างไอคอนแต่ละตัว */
+}
+
+
+/* Responsive Design */
+/* Mobile Devices */
+@media (max-width: 600px) {
+    .navbar {
+        padding: 0 1rem;
+    }
+
+    .navbar-links {
+        gap: 0.5rem;
+    }
+
+    .navbar a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .education-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        height: auto;
+    }
+
+    .experience-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    section {
+        padding: 1rem;
+        min-height: calc(100vh - 60px);
+    }
+
+    .section-content {
+        padding: 1rem;
+    }
+
+    .about-me-picture {
+        width: 120px;
+        height: 120px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .education-card {
+        padding: 1rem; /* Decrease padding to allow more space */
+    }
+
+    .picture-frame {
+        width: 100%; /* Adjust image size for mobile */
+    }
+}
+
+@media (min-width: 601px) and (max-width: 900px) {
+    .education-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .education-container {
+        gap: 0.5rem; /* Narrow gap between cards */
+    }
+
+    .education-card {
+        padding: 1rem;
+    }
+
+    .picture-frame {
+        width: 75%; /* Reduce image size */
+    }
+}
