@@ -151,13 +151,14 @@ section {
 .education-card:hover {
     transform: translateX(10px);
     border-left-color: #9acd32; /* Lemon Green */
+    cursor: pointer;
 }
 
 .picture-frame {
     aspect-ratio: 4/5;
     background: white;
     border-radius: 20px;
-    padding: 1rem;
+    padding: 0.5rem;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
     display: flex;
     align-items: center;
@@ -165,6 +166,14 @@ section {
     text-align: center;
     color: #666;
     width: 80%; /* Make the image container smaller */
+    overflow: hidden
+}
+
+.picture-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
 }
 
 /* Experience Section */
@@ -195,22 +204,11 @@ section {
     background-color: #f0f0f0;
     transform: scale(1.05);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 
 .experience-card:hover h3, .experience-card:hover p {
     color: #e84797; /* เปลี่ยนสีข้อความเมื่อ hover */
-}
-
-.overlay-link {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(255, 255, 255, 0); /* โปร่งใส */
-    z-index: 1; /* ให้แผ่นล่องหนอยู่เหนือเนื้อหาภายในการ์ด */
-    display: block;
-    text-decoration: none; /* ปิดการแสดงผลการ์ดในลิงก์ */
 }
 
 /* Skills Section */
@@ -312,9 +310,8 @@ h3 {
     }
 
     .education-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        height: auto;
+        grid-template-columns: 1fr; /* Single column for small screens */
+        gap: 1rem; /* Reduce gap for better fitting */
     }
 
     .experience-grid {
@@ -335,16 +332,20 @@ h3 {
     }
 
     .about-me-picture {
-        width: 120px;
-        height: 120px;
+        width: 200px;
+        height: 200px;
     }
 
     h2 {
         font-size: 1.5rem;
     }
 
+    .education {
+        overflow: hidden
+    }
+
     .education-card {
-        padding: 1rem; /* Decrease padding to allow more space */
+        padding: 1.5rem; /* Decrease padding to allow more space */
     }
 
     .picture-frame {
@@ -354,7 +355,8 @@ h3 {
 
 @media (min-width: 601px) and (max-width: 900px) {
     .education-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr 1fr; /* Two columns for medium screens */
+        gap: 1rem; /* Adjust gap for better spacing */
     }
 
     .skills-grid {
@@ -366,10 +368,28 @@ h3 {
     }
 
     .education-card {
-        padding: 1rem;
+        padding: 1.5rem;
     }
 
     .picture-frame {
         width: 75%; /* Reduce image size */
     }
 }
+
+@media (min-width: 901px) {
+    .education-container {
+        display: flex;
+        flex-wrap: wrap; /* ทำให้การ์ดยืดได้เมื่อขนาดหน้าจอลดลง */
+        justify-content: flex-start; /* จัดการ์ดเริ่มต้นจากด้านซ้าย */
+    }
+
+    .education-card {
+        padding: 1.5rem; /* เพิ่ม padding เพื่อไม่ให้เนื้อหาชิดขอบมากเกินไป */
+    }
+    
+    .picture-frame {
+        width: 90%; /* Reduce image size */
+    }
+
+}
+
