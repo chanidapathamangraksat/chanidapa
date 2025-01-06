@@ -201,7 +201,7 @@ section {
 
 .experience-card:hover {
     border-left-color: #9acd32; /* Lemon Green */
-    background-color: #f0f0f0;
+    background-color: #ffffff;
     transform: scale(1.05);
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
     cursor: pointer;
@@ -212,12 +212,25 @@ section {
 }
 
 /* Skills Section */
+.section-title {
+    text-align: center; /* ทำให้ข้อความอยู่กลาง */
+    font-size: 2rem; /* ขนาดตัวอักษรเท่ากัน */
+    margin-bottom: 1rem;
+    color: #2d3748; /* สีข้อความ */
+}
+
+.skills-container {
+    display: flex;
+    justify-content: center;  /* ทำให้ช่องทั้งหมดอยู่กลาง */
+    align-items: center;      /* จัดให้อยู่กลางในแนวตั้ง */
+    gap: 8rem;
+}
+
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* 3 columns for skills */
     gap: 1.5rem;
-    max-width: 1000px;
-    margin: 0 auto;
+    max-width: 600px; /* Adjust size as needed */
 }
 
 .skill-card {
@@ -227,11 +240,49 @@ section {
     text-align: center;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
-    border-left: 5px solid #e3e3e3;
 }
 
-.skill-card:hover {
-    border-left-color: #9acd32; /* Lemon Green */
+.skill-card img {
+    width: 100%; /* Make the images fill the card */
+    height: auto;
+    border-radius: 10px;
+}
+
+.certificates {
+    flex: 1;
+    max-width: 400px;
+}
+
+.certificate-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.certificate-card {
+    background-color: #f9fafb;
+    padding: 1rem;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, border-left 0.3s ease; /* เพิ่ม transition สำหรับการยกขึ้นและขอบซ้าย */
+}
+
+.certificate-card:hover {
+    transform: scale(1.05);
+    border-left: 5px solid #9acd32; /* ขอบเขียวด้านซ้าย */
+    cursor: pointer;
+}
+
+.certificate-card a {
+    text-decoration: none;
+    color: #2d3748;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.certificate-card a:hover {
+    color: #e84797; /* เปลี่ยนสีลิงค์เป็นสีเขียว */
 }
 
 h2 {
@@ -318,8 +369,17 @@ h3 {
         grid-template-columns: 1fr;
     }
 
+    .skills-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
     .skills-grid {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr; /* 2 columns on mobile */
+    }
+
+    .certificates {
+        max-width: 100%;
     }
 
     section {
@@ -360,7 +420,7 @@ h3 {
     }
 
     .skills-grid {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
     }
 
     .education-container {
