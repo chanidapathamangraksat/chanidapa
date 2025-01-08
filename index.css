@@ -266,7 +266,7 @@ section {
     background-color: #ffffff;
     padding: 2rem; /* เพิ่มขนาด padding */
     width: 400px; /* กำหนดขนาดความกว้าง */
-    height: 80px; /* กำหนดขนาดความสูง */
+    height: 70px; /* กำหนดขนาดความสูง */
     border-radius: 17px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
@@ -280,7 +280,7 @@ section {
 }
 
 .certificate-card a {
-    font-size: 1.3rem;
+    font-size: 1.1rem;
     text-decoration: none;
     color: #2d3748;
     font-weight: bold;
