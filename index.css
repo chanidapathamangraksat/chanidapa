@@ -130,6 +130,7 @@ section {
     grid-template-columns: 400px 1fr; /* Switch places of profile image and text */
     gap: 3rem;
     height: calc(100vh - 120px);
+    max-width: 100%; /* ให้ไม่เกินขนาดหน้าจอ */
     align-items: center;
 }
 
@@ -166,7 +167,7 @@ section {
     text-align: center;
     color: #666;
     width: 80%; /* Make the image container smaller */
-    overflow: hidden
+    overflow: hidden;
 }
 
 .picture-frame img {
@@ -223,12 +224,12 @@ section {
     display: flex;
     justify-content: center;  /* ทำให้ช่องทั้งหมดอยู่กลาง */
     align-items: center;      /* จัดให้อยู่กลางในแนวตั้ง */
-    gap: 8rem;
+    gap: 5rem;
 }
 
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); /* 3 columns for skills */
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); /* 3 columns for skills */
     gap: 1.5rem;
     max-width: 600px; /* Adjust size as needed */
 }
@@ -242,8 +243,8 @@ section {
 }
 
 .skill-card img {
-    width: 100%;
-    height: 100%;
+    width: 80%;
+    height: auto;
     object-fit: contain;
 }
 
@@ -259,9 +260,14 @@ section {
 }
 
 .certificate-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background-color: #ffffff;
-    padding: 1rem;
-    border-radius: 10px;
+    padding: 2rem; /* เพิ่มขนาด padding */
+    width: 400px; /* กำหนดขนาดความกว้าง */
+    height: 80px; /* กำหนดขนาดความสูง */
+    border-radius: 17px;
     text-align: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, border-left 0.3s ease; /* เพิ่ม transition สำหรับการยกขึ้นและขอบซ้าย */
@@ -274,6 +280,7 @@ section {
 }
 
 .certificate-card a {
+    font-size: 1.3rem;
     text-decoration: none;
     color: #2d3748;
     font-weight: bold;
@@ -364,8 +371,16 @@ h3 {
         gap: 1rem; /* Reduce gap for better fitting */
     }
 
-    .experience-grid {
-        grid-template-columns: 1fr;
+    .education {
+        overflow: hidden
+    }
+
+    .education-card {
+        padding: 1.5rem; /* Decrease padding to allow more space */
+    }
+
+    .picture-frame {
+        width: 100%; /* Adjust image size for mobile */
     }
 
     .skills-container {
@@ -399,21 +414,12 @@ h3 {
         font-size: 1.5rem;
     }
 
-    .education {
-        overflow: hidden
-    }
-
-    .education-card {
-        padding: 1.5rem; /* Decrease padding to allow more space */
-    }
-
-    .picture-frame {
-        width: 100%; /* Adjust image size for mobile */
-    }
 }
 
+/* สำหรับหน้าจอขนาดกลาง (601px - 900px) */
 @media (min-width: 601px) and (max-width: 900px) {
     .education-grid {
+        display: flex;
         grid-template-columns: 1fr 1fr; /* Two columns for medium screens */
         gap: 1rem; /* Adjust gap for better spacing */
     }
@@ -424,31 +430,40 @@ h3 {
 
     .education-container {
         gap: 0.5rem; /* Narrow gap between cards */
+        max-width: 100%; /* ให้ container ไม่เกินหน้าจอ */
+        overflow: hidden; /* ป้องกันไม่ให้เนื้อหาล้น */
+        padding: 0 1rem; /* เพิ่ม padding ด้านซ้ายและขวา */
     }
 
     .education-card {
-        padding: 1.5rem;
+        padding: 1rem; /* ลด padding */
+        box-sizing: border-box; /* ให้ padding รวมกับขนาด */
     }
 
     .picture-frame {
-        width: 75%; /* Reduce image size */
+        width: 100%; /* ให้รูปภาพยืดเต็มความกว้างของการ์ด */
+        height: auto;
     }
 }
 
+/* สำหรับหน้าจอขนาดใหญ่กว่า 901px */
 @media (min-width: 901px) {
     .education-container {
         display: flex;
         flex-wrap: wrap; /* ทำให้การ์ดยืดได้เมื่อขนาดหน้าจอลดลง */
         justify-content: flex-start; /* จัดการ์ดเริ่มต้นจากด้านซ้าย */
+        max-width: 100%; /* ให้ container ไม่เกินหน้าจอ */
+        overflow: hidden; /* ป้องกันไม่ให้เนื้อหาล้น */
+        padding: 0 2rem; /* เพิ่ม padding ด้านซ้ายและขวา */
     }
 
     .education-card {
         padding: 1.5rem; /* เพิ่ม padding เพื่อไม่ให้เนื้อหาชิดขอบมากเกินไป */
+        box-sizing: border-box; /* ให้ padding รวมกับขนาด */
     }
-    
+
     .picture-frame {
-        width: 90%; /* Reduce image size */
+        width: 90%; /* ลดขนาดรูปให้เล็กลง */
+        height: auto;
     }
-
 }
-
